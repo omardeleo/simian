@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("Angry-Chimpanzee.jpg")
+}
+
+.board {
+  width: 440px;
+  height: 560px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 200px 200px;
+  background-color: black;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding-top:20px;
+  padding-left: 20px;
+}
+
+.pad {
+  width: 200px;
+  height: 200px;
+  opacity: 0.4;
+}
+
+
+.red{
+  background-color: red;
+  grid-column-start: 1;
+}
+
+.blue {
+  background-color: blue;
+  grid-column-start: 2;
+}
+
+.green {
+  background-color: #00FF00;
+  /* grid-column-start:; */
+  grid-column-start: 2;
+}
+
+.yellow {
+  background-color: yellow;
+  grid-row-start: 2;
+}
+
+
+
+.start-game, .end-game {
+  width: 100px;
+  height: 40px;
+  background-color: black;
+  color: white;
+}

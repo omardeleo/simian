@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>SIMIAN</title>
+    <link rel="stylesheet" href="game.css">
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <section class="board">
+      <div class="red pad">
+
+      </div>
+      <div class="green pad">
+
+      </div>
+      <div class="blue pad">
+
+      </div>
+      <div class="yellow pad">
+
+
+
+      </div>
+
+      <img class="logo" src="https://i.imgur.com/puvgxnQ.png" alt="">
+
+    </section>
+    <section class="controls">
+      <div class="start-game">
+        START GAME
+      </div>
+      <div class="end-game">
+        END GAME
+      </div>
+    </section>
+    <script>
+    $(()=> {
+      $(".pad").mouseover(function(){$(this).css("opacity", "1")});
+      $(".pad").mouseleave(function(){$(this).css("opacity", "0.4")});
+
+
+
+      function randomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+      }
+
+      function generateSequence(num) {
+        let sequence = [];
+        // console.log(num);
+        // console.log(sequence);
+        while (sequence.length < num) {
+          sequence.push(COLORS[randomInt(0,3)]);
+        }
+        return sequence;
+      }
+
+      const COLORS = ["red", "green","blue", "yellow"];
+
+      let dipdoo = generateSequence(6);
+
+      function lightup () {
+        let color = COLORS[randomInt(0,3)];
+        let selector = "."+color+".pad";
+        $(selector).css("opacity", "1");
+        window.setTimeout(callback.bind($(selector)), 500);
+      }
+
+      function callback(){
+        $(this).css("opacity", "0.4");
+      }
+
+
+      setInterval(lightup, 2000);
+
+
+      function endGame() {
+
+
+      }
+   });
+    </script>
+  </body>
+</html>
