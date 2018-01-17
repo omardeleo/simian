@@ -22,3 +22,5 @@ Simian is a pattern-matching game in which a board with 4 different-colored ligh
 * Board
 * User Interface
 * Scorekeeping
+
+![](https://naturescrusaders.files.wordpress.com/2009/08/monkeymirror.jpg?w=300)
