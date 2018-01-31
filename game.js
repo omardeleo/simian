@@ -1,7 +1,5 @@
 $(()=> {
-  $(".pad").mouseover(function(){$(this).css("opacity", "1");});
-  $(".pad").mouseleave(function(){$(this).css("opacity", "0.4");});
-  $(".end-game").click(stopLights);
+
   $(".start-game").click(startGame);
 
   const COLORS = ["red", "green","blue", "yellow"];
@@ -22,8 +20,8 @@ $(()=> {
   }
 
   function resetGame() {
+    removeUserControls();
     stopLights();
-    $( ".pad" ).off("click", checkCorrect);
     count = 0;
     round = 1;
     score = 0;
@@ -41,11 +39,31 @@ $(()=> {
     let color = COLORS[randomInt(0,3)];
     selector = "."+color+".pad";
     sequence.push(selector);
-    lightInterval = setInterval(lightUp, 800);
+    lightInterval = setInterval(lightSequence, 800);
     console.log(sequence);
   }
 
+  function addUserControls() {
+    $(".pad").on("mousedown", lightUp);
+    $(".pad").on("mouseup", lightOff);
+    $( ".pad" ).on("click", checkCorrect);
+  }
+
+  function removeUserControls() {
+    $(".pad").off("mousedown", lightUp);
+    $(".pad").off("mouseup", lightOff);
+    $( ".pad" ).off("click", checkCorrect);
+  }
+
   function lightUp() {
+    $(this).css("opacity", "1");
+  }
+
+  function lightOff() {
+    $(this).css("opacity", "0.4");
+  }
+
+  function lightSequence() {
     if (count < round) {
       selector = sequence[count];
       $(selector).css("opacity", "1");
@@ -65,7 +83,11 @@ $(()=> {
   function userTurn() {
       lightCount = 0;
       correctCount = 0;
-      $( ".pad" ).on("click", checkCorrect);
+      addUserControls();
+  }
+
+  function endGame() {
+    $(".game-over-screen").css("display", "flex");
   }
 
   function checkCorrect(event) {
@@ -73,6 +95,7 @@ $(()=> {
         selector = sequence[lightCount];
         if (event.target.className !== $(selector).attr("class")) {
           console.log("GAME OVER!");
+          endGame();
           resetGame();
         } else {
           correctFunction();
@@ -87,16 +110,40 @@ $(()=> {
     score_html = "<p>"+ score + "</p>";
     $(".score").html(score_html);
     if (correctCount === sequence.length) {
-      $( ".pad" ).off("click", checkCorrect);
-      round += 1;
-      boardTurn();
+      correctSequence();
     }
+  }
+
+  function correctSequence() {
+    removeUserControls();
+    round += 1;
+    niceScreen();
+  }
+
+  function niceScreen(){
+    console.log("NICE!");
+    niceScreenOn();
+    setTimeout(niceScreenOff,400);
+    boardTurn();
+  }
+
+  function niceScreenOff() {
+    $(".nice").css("display", "none");
+  }
+
+  function niceScreenOn() {
+    $(".nice").css("display", "block");
   }
 
   function dimPad(){
     $(this).css("opacity", "0.4");
   }
 
+  $(".play-again").click(returnToGame);
 
+  function returnToGame(){
+    console.log("hello");
+    $(".game-over-screen").css("display", "none");
+  }
 
 });
