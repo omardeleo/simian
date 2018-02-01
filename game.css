@@ -92,7 +92,6 @@ body {
 
 .game-over-text {
   color: white;
-
 }
 
 .play-again {
@@ -118,10 +117,3 @@ body {
   display: block;
   cursor: pointer;
 }
-
-/* .pad {
-  border-top-left-radius: -5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-} */
