@@ -1,29 +1,31 @@
 @font-face {
-    font-family: digitalFont;
-    src: url(DS-DIGIT.TTF);
+  font-family: 'digitalFont';
+  src: url(DS-DIGIT.TTF);
 }
 
 @font-face {
-    font-family: simianFont;
-    src: url(pricedownbl.ttf);
+  font-family: 'simianFont';
+  src: url(pricedownbl.ttf);
 }
 
 body {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: black;
 }
 
 .content {
-
+  width: 740px;
+  display: flex;
+  flex-direction: row;
 }
 
 .board-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 190px;
 }
 
 .board {
@@ -43,7 +45,6 @@ body {
   height: 170px;
   opacity: 0.4;
 }
-
 
 .red{
   background-color: red;
@@ -66,25 +67,38 @@ body {
 }
 
 .start-game {
-  padding: 0 15px 20px;
-  width: 170px;
-  height: 40px;
+  padding: 0 10px 5px 10px;
+  /* width: 120px; */
+  /* height: 40px; */
   background-color: black;
   color: white;
   border: 1px solid white;
   border-radius: 10px;
   cursor: pointer;
   font-family: simianFont;
+  font-size: 28px;
+}
+
+.scoreboard {
+  margin: 120px 0 0 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: Sans-Serif;
+  width: 170px;
   font-size: 40px;
+  font-family: 'simianFont';
 }
 
 .score {
-  width: 100px;
-  height: 60px;
-  background-color: black;
-  color: white;
-  font-family: digitalFont;
-  font-size:60px;
+  margin-top: 10px;
+  font-family: 'digitalFont';
+  font-size: 40px;
+  border: 1px solid white;
+  padding: 0 10px;
+  border-radius: 10px;
+  opacity: 0.4;
 }
 
 .game-over-screen {
