@@ -105,7 +105,8 @@ body {
 .play-again {
   font-size: 40px;
 }
-.ultimate-container{
+
+.container{
   position: relative;
   margin: auto;
 }
