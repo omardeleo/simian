@@ -121,7 +121,6 @@ $(()=> {
   }
 
   function niceScreen(){
-    console.log("NICE!");
     niceScreenOn();
     setTimeout(niceScreenOff,400);
     boardTurn();
@@ -142,8 +141,9 @@ $(()=> {
   $(".play-again").click(returnToGame);
 
   function returnToGame(){
-    console.log("hello");
     $(".game-over-screen").css("display", "none");
   }
+
+
 
 });
