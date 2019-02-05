@@ -13,26 +13,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-image: url("Angry-Chimpanzee.jpg"); */
   background-color: black;
 }
 
 .board {
-  width: 440px;
+  margin-top: 20px;
+  width: 360px;
   height: 560px;
   display: grid;
-  grid-template-columns: 200px 200px;
-  grid-template-rows: 200px 200px;
+  grid-template-columns: 170px 170px;
+  grid-template-rows: 170px 170px;
   background-color: black;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding-top:20px;
-  padding-left: 20px;
 }
 
 .pad {
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   opacity: 0.4;
 }
 
@@ -58,11 +56,16 @@ body {
 }
 
 .start-game {
-  width: 100px;
+  padding: 0 15px 20px;
+  width: 170px;
   height: 40px;
   background-color: black;
   color: white;
+  border: 1px solid white;
+  border-radius: 10px;
   cursor: pointer;
+  font-family: simianFont;
+  font-size: 40px;
 }
 
 .score {
@@ -92,6 +95,11 @@ body {
 
 .game-over-text {
   color: white;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 360px;
 }
 
 .play-again {
