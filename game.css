@@ -93,6 +93,7 @@ body {
 
 .score {
   margin-top: 10px;
+  width: 140px;
   font-family: 'digitalFont';
   font-size: 40px;
   border: 1px solid white;
