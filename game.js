@@ -95,7 +95,6 @@ $(()=> {
       if (lightCount < sequence.length) {
         selector = sequence[lightCount];
         if (event.target.className !== $(selector).attr("class")) {
-          console.log("GAME OVER!");
           endGame();
           resetGame();
         } else {
@@ -107,12 +106,19 @@ $(()=> {
 
   function correctFunction() {
     correctCount += 1;
-    score += 10;
-    score_html = score;
-    $(".score").html(score_html);
+    increaseScore();
     if (correctCount === sequence.length) {
       correctSequence();
     }
+  }
+
+  function increaseScore() {
+    score += 10;
+    let score_string = String(score);
+    while (score_string.length < 7) {
+      score_string = '0' + score_string;
+    }
+    $(".score").html(score_string);
   }
 
   function correctSequence() {
