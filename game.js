@@ -1,7 +1,4 @@
 $(()=> {
-
-  $(".start-game").click(startGame);
-
   const COLORS = ["red", "green","blue", "yellow"];
   let lightInterval;
   let count;
@@ -13,26 +10,31 @@ $(()=> {
   let selector;
   let score_html;
 
-  function randomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  $(".start-game").click(startGame);
+
+  function startGame() {
+    resetGame();
+    boardTurn();
   }
 
   function resetGame() {
     removeUserControls();
     stopLights();
+    resetScore();
     count = 0;
     round = 1;
-    score = 0;
     sequence = [];
-    score_html = "<p>"+ score + "</p>";
-    $(".score").html(score_html);
   }
 
-  function startGame() {
-    resetGame();
-    boardTurn();
+  function resetScore() {
+    score = 0;
+    $(".score").html('0000000');
+  }
+
+  function randomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   function boardTurn(){
@@ -40,7 +42,6 @@ $(()=> {
     selector = "."+color+".pad";
     sequence.push(selector);
     lightInterval = setInterval(lightSequence, 800);
-    console.log(sequence);
   }
 
   function addUserControls() {
@@ -107,7 +108,7 @@ $(()=> {
   function correctFunction() {
     correctCount += 1;
     score += 10;
-    score_html = "<p>"+ score + "</p>";
+    score_html = score;
     $(".score").html(score_html);
     if (correctCount === sequence.length) {
       correctSequence();
@@ -143,7 +144,5 @@ $(()=> {
   function returnToGame(){
     $(".game-over-screen").css("display", "none");
   }
-
-
 
 });
