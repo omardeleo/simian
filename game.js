@@ -15,6 +15,7 @@ $(()=> {
   function startGame() {
     resetGame();
     boardTurn();
+    $(".score").css("opacity", "1");
   }
 
   function resetGame() {
