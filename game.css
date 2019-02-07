@@ -21,7 +21,7 @@ body {
   flex-direction: row;
 }
 
-.message {
+.left-panel {
   width: 190px;
 }
 
@@ -134,9 +134,11 @@ body {
 
 .nice {
   height:130px;
+  margin-left: 20px;
+  margin-bottom: 25px;
   color: white;
   display: none;
-  font-size: 90px;
+  font-size: 80px;
   font-family: simianFont;
 }
 
