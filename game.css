@@ -105,6 +105,21 @@ body {
   opacity: 0.4;
 }
 
+.mute {
+  display: flex;
+  flex-direction: column;
+  font-family: Sans-Serif;
+  width: 52px;
+  font-size: 20px;
+  font-family: 'simianFont';
+  border-radius: 6px;
+  padding: 0 6px 6px 6px;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  cursor: pointer;
+}
+
 .game-over-screen {
   left: 0;
   top: 0;
