@@ -139,11 +139,12 @@ $(()=> {
   function niceScreen(){
     showNice();
     setTimeout(hideNice,400);
-    boardTurn();
+
   }
 
   function hideNice() {
     $(".nice").css("display", "none");
+    setTimeout(boardTurn, 500);
   }
 
   function showNice() {
