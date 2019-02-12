@@ -67,6 +67,8 @@ $(()=> {
 
   function lightSequence() {
     if (count < round) {
+      $('.sound-1')[0].currentTime = 0;
+      $('.sound-1')[0].play();
       selector = sequence[count];
       $(selector).css("opacity", "1");
       window.setTimeout(dimPad.bind($(selector)), 500);
