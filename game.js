@@ -67,10 +67,12 @@ $(()=> {
 
   function lightSequence() {
     if (count < round) {
-      $('.sound-1')[0].currentTime = 0;
-      $('.sound-1')[0].play();
+      // $('.sound-1')[0].currentTime = 0;
+      // $('.sound-1')[0].play();
       selector = sequence[count];
       $(selector).css("opacity", "1");
+      $(`${selector} audio`)[0].currentTime = 0;
+      $(`${selector} audio`)[0].play();
       window.setTimeout(dimPad.bind($(selector)), 500);
       count += 1;
     } else {
@@ -95,18 +97,18 @@ $(()=> {
   }
 
   function checkCorrect(event) {
-    $('.sound-1')[0].currentTime = 0;
-    $('.sound-1')[0].play();
-      if (lightCount < sequence.length) {
-        selector = sequence[lightCount];
-        if (event.target.className !== $(selector).attr("class")) {
-          endGame();
-          resetGame();
-        } else {
-          correctFunction();
-        }
-        lightCount+= 1;
+    if (lightCount < sequence.length) {
+      selector = sequence[lightCount];
+      $(`${selector} audio`)[0].currentTime = 0;
+      $(`${selector} audio`)[0].play();
+      if (event.target.className !== $(selector).attr("class")) {
+        endGame();
+        resetGame();
+      } else {
+        correctFunction();
       }
+      lightCount+= 1;
+    }
   }
 
   function correctFunction() {
