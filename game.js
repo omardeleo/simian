@@ -137,16 +137,16 @@ $(()=> {
   }
 
   function niceScreen(){
-    niceScreenOn();
-    setTimeout(niceScreenOff,400);
+    showNice();
+    setTimeout(hideNice,400);
     boardTurn();
   }
 
-  function niceScreenOff() {
+  function hideNice() {
     $(".nice").css("display", "none");
   }
 
-  function niceScreenOn() {
+  function showNice() {
     $(".nice").css("display", "block");
   }
 
