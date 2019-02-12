@@ -118,10 +118,9 @@ body {
 }
 
 .mute {
-  display: flex;
-  flex-direction: column;
   font-family: Sans-Serif;
   width: 52px;
+  height: 44px;
   font-size: 20px;
   font-family: 'simianFont';
   border-radius: 6px;
