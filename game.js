@@ -9,6 +9,7 @@ $(()=> {
   let correctCount;
   let selector;
   let score_html;
+  let isMuted = false;
 
   $(".start-game").click(startGame);
 
@@ -154,6 +155,17 @@ $(()=> {
 
   function returnToGame(){
     $(".game-over-screen").css("display", "none");
+  }
+
+  $('.mute').click(muteToggle);
+
+  function muteToggle() {
+    if (!isMuted) {
+      $('.mute').text("SOUND ON");
+    } else {
+      $('.mute').text("SOUND OFF");
+    }
+    isMuted = !isMuted;
   }
 
 });
