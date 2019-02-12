@@ -164,9 +164,9 @@ $(()=> {
 
   function muteToggle() {
     if (!isMuted) {
-      $('.mute').text("SOUND ON");
+      $('.mute').html("SOU<span>N</span>D O<span>N</span>");
     } else {
-      $('.mute').text("SOUND OFF");
+      $('.mute').html("SOU<span>N</span>D O<span>F</span>F");
     }
     isMuted = !isMuted;
   }
