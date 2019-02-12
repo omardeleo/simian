@@ -93,6 +93,8 @@ $(()=> {
   }
 
   function checkCorrect(event) {
+    $('.sound-1')[0].currentTime = 0;
+    $('.sound-1')[0].play();
       if (lightCount < sequence.length) {
         selector = sequence[lightCount];
         if (event.target.className !== $(selector).attr("class")) {
