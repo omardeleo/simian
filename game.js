@@ -70,8 +70,10 @@ $(()=> {
     if (count < round) {
       selector = sequence[count];
       $(selector).css("opacity", "1");
-      $(`${selector} audio`)[0].currentTime = 0;
-      $(`${selector} audio`)[0].play();
+      if (!isMuted) {
+        playSound(selector);
+      }
+
       window.setTimeout(dimPad.bind($(selector)), 500);
       count += 1;
     } else {
@@ -98,8 +100,9 @@ $(()=> {
   function checkCorrect(event) {
     if (lightCount < sequence.length) {
       selector = sequence[lightCount];
-      $(`${selector} audio`)[0].currentTime = 0;
-      $(`${selector} audio`)[0].play();
+      if (!isMuted) {
+        playSound(selector);
+      }
       if (event.target.className !== $(selector).attr("class")) {
         endGame();
         resetGame();
@@ -168,4 +171,8 @@ $(()=> {
     isMuted = !isMuted;
   }
 
+  function playSound(selector) {
+    $(`${selector} audio`)[0].currentTime = 0;
+    $(`${selector} audio`)[0].play();
+  }
 });
