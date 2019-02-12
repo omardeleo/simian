@@ -162,11 +162,10 @@ body {
 
 .nice {
   height:130px;
-  margin-left: 25px;
   color: white;
   display: none;
   font-size: 80px;
-  font-family: simianFont;
+  font-family: 'simianFont';
 }
 
 .play-again {
