@@ -144,7 +144,7 @@ $(()=> {
 
   function hideNice() {
     $(".nice").css("display", "none");
-    setTimeout(boardTurn, 500);
+    boardTurn();
   }
 
   function showNice() {
