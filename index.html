@@ -12,84 +12,88 @@
     <script src="./game.js" charset="utf-8"></script>
   </head>
   <body>
-
-    <div class="game-over-screen">
-      <div class="game-over-text">
-        <div>Gam<span>E</span> ovEr</div>
-        <div class="play-again">
-          Play again?
+    <div class="top-row"></div>
+    <div class="middle-row">
+      <div class="game-over-screen">
+        <div class="game-over-text">
+          <div>Gam<span>E</span> ovEr</div>
+          <div class="play-again">
+            Play again?
+          </div>
         </div>
       </div>
-    </div>
-    <div class="content">
-      <div class="left-panel">
-      </div>
-      <div class="middle-panel">
-        <img class="logo" src="https://i.imgur.com/puvgxnQ.png" alt="">
-        <div class="board-container">
-          <div class="instructions-panel">
-            <div class="instructions">
-            <p>
-              At the start of a <span>N</span><span>EW GA</span><span>M</span><span>E</span>, the board will play a random sequence of lights. You must repeat the sequence by pressing the colored pads in the correct order.
-            </p>
-            <p>
-              After each round, another random light will be added to the sequence. Keep repeating the sequence until you beat the high score.
-            </p>
-            <p>Good Luck! 🐵🍌🐒</p>
+      <div class="content">
+        <div class="left-panel">
+        </div>
+        <div class="middle-panel">
+          <img class="logo" src="https://i.imgur.com/puvgxnQ.png" alt="">
+          <div class="board-container">
+            <div class="instructions-panel">
+              <div class="instructions">
+              <p>
+                At the start of a <span>N</span><span>EW GA</span><span>M</span><span>E</span>, the board will play a random sequence of lights. You must repeat the sequence by pressing the colored pads in the correct order.
+              </p>
+              <p>
+                After each round, another random light will be added to the sequence. Keep repeating the sequence until you beat the high score.
+              </p>
+              <p>Good Luck! 🐵🍌🐒</p>
+                </div>
+              <div class="close">
+                <span>C<span>L</span>OSE</span>
               </div>
-            <div class="close">
-              <span>C<span>L</span>OSE</span>
+            </div>
+            <div class="board">
+              <div class="red pad">
+                <audio
+                  preload=""
+                  src="sounds/monkey-1.mp3">
+                </audio>
+              </div>
+              <div class="green pad">
+                <audio
+                  preload=""
+                  src="sounds/monkey-2.mp3">
+                </audio>
+              </div>
+              <div class="blue pad">
+                <audio
+                  preload=""
+                  src="sounds/monkey-3.mp3">
+                </audio>
+              </div>
+              <div class="yellow pad">
+                <audio
+                  preload=""
+                  src="sounds/monkey-4.mp3">
+                </audio>
+              </div>
             </div>
           </div>
-          <div class="board">
-            <div class="red pad">
-              <audio
-                preload=""
-                src="sounds/monkey-1.mp3">
-              </audio>
-            </div>
-            <div class="green pad">
-              <audio
-                preload=""
-                src="sounds/monkey-2.mp3">
-              </audio>
-            </div>
-            <div class="blue pad">
-              <audio
-                preload=""
-                src="sounds/monkey-3.mp3">
-              </audio>
-            </div>
-            <div class="yellow pad">
-              <audio
-                preload=""
-                src="sounds/monkey-4.mp3">
-              </audio>
-            </div>
+          <div class="start-game">
+            <span>N</span>EW GA<span>M</span>E
           </div>
         </div>
-        <div class="start-game">
-          <span>N</span>EW GA<span>M</span>E
-        </div>
-      </div>
-      <div class="right-panel">
-        <div class='how-to-play'>
-          <span>H</span>OW TO P<span>L</span>AY
-        </div>
-        <div class="right-panel-content">
+        <div class="right-panel">
+          <div class='how-to-play'>
+            <span>H</span>OW TO P<span>L</span>AY
+          </div>
+          <div class="right-panel-content">
 
-          <div class="scoreboard">
-            <div>SCO<span>R</span>E</div>
-            <div class="score">0000000</div>
-          </div>
-          <div class="nice">
-            <span>N</span>iCE!
-          </div>
-          <div class="mute">
-            SOU<span>N</span>D O<span>F</span>F
+            <div class="scoreboard">
+              <div>SCO<span>R</span>E</div>
+              <div class="score">0000000</div>
+            </div>
+            <div class="nice">
+              <span>N</span>iCE!
+            </div>
+            <div class="mute">
+              SOU<span>N</span>D O<span>F</span>F
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="bottom-row"></div>
+
   </body>
 </html>
