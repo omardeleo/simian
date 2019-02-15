@@ -234,3 +234,37 @@ body {
   display: block;
   cursor: pointer;
 }
+
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.links-container {
+  font-family: 'simianFont';
+  color: white;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+.links {
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  width: 100px;
+  font-size: 18px;
+  border-radius: 6px;
+  padding-bottom: 4px;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
