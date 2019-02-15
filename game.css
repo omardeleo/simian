@@ -39,6 +39,37 @@ body {
   overflow: hidden;
 }
 
+.instructions-panel {
+  color: white;
+  width: 360px;
+  height: 360px;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 4px 20px 20px 20px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructions-panel span {
+  font-family: 'simianFont';
+  font-size: 20px;
+}
+
+.close {
+  width: 70px;
+  font-size: 20px;
+  border-radius: 6px;
+  padding-bottom: 2px;
+  border: 1px solid white;
+  text-align: center;
+  cursor: pointer;
+}
+
 .board {
   margin: 20px 0;
   width: 360px;
