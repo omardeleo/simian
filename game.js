@@ -1,4 +1,4 @@
-$(()=> {
+$(() => {
   const COLORS = ["red", "green","blue", "yellow"];
   let lightInterval;
   let count;
@@ -176,4 +176,13 @@ $(()=> {
     $(`${selector} audio`)[0].currentTime = 0;
     $(`${selector} audio`)[0].play();
   }
+
+  $(".how-to-play").click(function() {
+    $(".instructions-panel").css("display", "flex");
+  })
+
+  $(".close").click(function() {
+    $(".instructions-panel").css("display", "none");
+  })
+
 });
