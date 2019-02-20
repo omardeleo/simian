@@ -135,13 +135,17 @@ $(() => {
     }
   }
 
-  function increaseScore() {
-    score += 10;
-    let score_string = String(score);
+  function convertScore(convert) {
+    let score_string = String(convert);
     while (score_string.length < 7) {
       score_string = '0' + score_string;
     }
-    $(".score").html(score_string);
+    return score_string;
+  }
+
+  function increaseScore() {
+    score += 10;
+    $(".score").html(convertScore(score));
   }
 
   function correctSequence() {
