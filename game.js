@@ -95,6 +95,7 @@ $(() => {
 
   function endGame() {
     $(".game-over-screen").css("display", "flex");
+    $(".score").addClass("final-score");
   }
 
   function checkCorrect(event) {
@@ -105,7 +106,6 @@ $(() => {
       }
       if (event.target.className !== $(selector).attr("class")) {
         endGame();
-        resetGame();
       } else {
         correctFunction();
       }
@@ -158,6 +158,7 @@ $(() => {
   $(".play-again").click(returnToGame);
 
   function returnToGame(){
+    resetGame();
     $(".game-over-screen").css("display", "none");
   }
 
