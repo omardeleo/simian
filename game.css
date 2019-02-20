@@ -134,21 +134,8 @@ body {
   align-items: center;
 }
 
-.how-to-play {
-  font-family: Sans-Serif;
-  width: 126px;
-  font-size: 20px;
-  font-family: 'simianFont';
-  border-radius: 6px;
-  padding-bottom: 4px;
-  border: 1px solid white;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 50px;
-}
-
 .right-panel-content {
-  margin-top: 35px;
+  margin-top: 112px;
   height: 360px;
   display: flex;
   flex-direction: column;
@@ -179,18 +166,23 @@ body {
 }
 
 .high-scoreboard {
-  margin-top: 115px;
+  margin: 112px 0 0px 10px;
 }
 
-.mute {
+.options {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.how-to-play, .mute {
   font-family: Sans-Serif;
-  width: 52px;
-  height: 44px;
+  width: 126px;
   font-size: 20px;
   font-family: 'simianFont';
   border-radius: 6px;
-  padding: 0 6px 6px 6px;
-  color: white;
+  padding-bottom: 4px;
   border: 1px solid white;
   text-align: center;
   cursor: pointer;
