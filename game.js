@@ -10,6 +10,9 @@ $(() => {
   let selector;
   let score_html;
   let isMuted = false;
+  let highScore;
+
+  getHighScore();
 
   $(".start-game").click(startGame);
 
@@ -17,14 +20,17 @@ $(() => {
     resetGame();
     boardTurn();
     $(".score").css("opacity", "1");
-    getHighScore();
+  }
+
+  function displayHighScore() {
+    $(".high-score").html(convertScore(highScore));
   }
 
   function resetGame() {
     removeUserControls();
     stopLights();
     resetScore();
-
+    getHighScore();
     count = 0;
     round = 1;
     sequence = [];
@@ -34,12 +40,13 @@ $(() => {
     score = 0;
     $(".score").html('0000000');
   }
-  
-  var getHighScore = function() {
+
+  function getHighScore() {
     var docRef = db.collection("scores").doc("top-score");
     docRef.get().then(function(doc) {
         if (doc.exists) {
-            $(".high-score").html(convertScore(doc.data().score));
+            highScore = doc.data().score;
+            displayHighScore();
         } else {
             console.log("No such document!");
         }
@@ -48,9 +55,7 @@ $(() => {
     });
   }
 
-  getHighScore();
-
-  var convertScore = function(convert) {
+  function convertScore(convert) {
     let score_string = String(convert);
     while (score_string.length < 7) {
       score_string = '0' + score_string;
@@ -98,7 +103,6 @@ $(() => {
       if (!isMuted) {
         playSound(selector);
       }
-
       window.setTimeout(dimPad.bind($(selector)), 500);
       count += 1;
     } else {
@@ -118,10 +122,29 @@ $(() => {
       addUserControls();
   }
 
+  function isNewHighScore(score) {
+    return score > highScore;
+  }
+
+  function submitScore(score) {
+    db.collection("scores").doc("top-score").set({
+      score: score,
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+        getHighScore();
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+  }
+
   function endGame() {
     $(".game-over-screen").css("display", "flex");
-    $(".score").addClass("final-score");
-    getHighScore();
+    const score = parseInt($(".score").html());
+    if (isNewHighScore(score)) {
+      submitScore(score)
+    };
   }
 
   function checkCorrect(event) {
@@ -161,7 +184,6 @@ $(() => {
   function niceScreen(){
     showNice();
     setTimeout(hideNice,400);
-
   }
 
   function hideNice() {
