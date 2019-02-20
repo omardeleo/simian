@@ -156,8 +156,7 @@ body {
   align-items: center;
 }
 
-.scoreboard {
-  /* margin: 120px 0 0 20px; */
+.scoreboard, .high-scoreboard {
   color: white;
   display: flex;
   align-items: center;
@@ -168,7 +167,7 @@ body {
   font-family: 'simianFont';
 }
 
-.score {
+.score, .high-score {
   margin-top: 10px;
   width: 140px;
   font-family: 'digitalFont';
@@ -177,6 +176,10 @@ body {
   padding: 0 10px;
   border-radius: 10px;
   opacity: 0.4;
+}
+
+.high-scoreboard {
+  margin-top: 115px;
 }
 
 .mute {
