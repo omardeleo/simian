@@ -17,6 +17,7 @@ $(() => {
     resetGame();
     boardTurn();
     $(".score").css("opacity", "1");
+    getHighScore();
   }
 
   function resetGame() {
@@ -31,6 +32,19 @@ $(() => {
   function resetScore() {
     score = 0;
     $(".score").html('0000000');
+  }
+
+  function getHighScore() {
+    var docRef = db.collection("scores").doc("top-score");
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data().score);
+        } else {
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
   }
 
   function randomInt(min, max) {
