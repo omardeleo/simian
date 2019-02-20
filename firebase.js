@@ -7,17 +7,16 @@ firebase.initializeApp({
 var db = firebase.firestore();
 
 function submitScore(score) {
-  db.collection("scores").add({
+  db.collection("scores").doc("top-score").set({
     score: score,
   })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
+  .then(function() {
+      console.log("Document successfully written!");
   })
   .catch(function(error) {
-    console.error("Error adding document: ", error);
+      console.error("Error writing document: ", error);
   });
 }
-
 
 const score = document.querySelector('.score');
 
