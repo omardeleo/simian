@@ -24,6 +24,7 @@ $(() => {
     removeUserControls();
     stopLights();
     resetScore();
+
     count = 0;
     round = 1;
     sequence = [];
@@ -33,18 +34,28 @@ $(() => {
     score = 0;
     $(".score").html('0000000');
   }
-
-  function getHighScore() {
+  
+  var getHighScore = function() {
     var docRef = db.collection("scores").doc("top-score");
     docRef.get().then(function(doc) {
         if (doc.exists) {
-            console.log("Document data:", doc.data().score);
+            $(".high-score").html(convertScore(doc.data().score));
         } else {
             console.log("No such document!");
         }
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
+  }
+
+  getHighScore();
+
+  var convertScore = function(convert) {
+    let score_string = String(convert);
+    while (score_string.length < 7) {
+      score_string = '0' + score_string;
+    }
+    return score_string;
   }
 
   function randomInt(min, max) {
@@ -110,6 +121,7 @@ $(() => {
   function endGame() {
     $(".game-over-screen").css("display", "flex");
     $(".score").addClass("final-score");
+    getHighScore();
   }
 
   function checkCorrect(event) {
@@ -133,14 +145,6 @@ $(() => {
     if (correctCount === sequence.length) {
       correctSequence();
     }
-  }
-
-  function convertScore(convert) {
-    let score_string = String(convert);
-    while (score_string.length < 7) {
-      score_string = '0' + score_string;
-    }
-    return score_string;
   }
 
   function increaseScore() {
