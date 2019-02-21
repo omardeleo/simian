@@ -204,9 +204,9 @@ $(() => {
   $(".play-again").click(returnToGame);
 
   function returnToGame(){
-    resetGame();
     $(".game-over-screen").css("display", "none");
     hiScore.css("display", "none");
+    newGame();
   }
 
   $('.mute').click(muteToggle);
