@@ -16,9 +16,9 @@ $(() => {
 
   getHighScore();
 
-  $(".start-game").click(startGame);
+  $(".new-game").click(newGame);
 
-  function startGame() {
+  function newGame() {
     resetGame();
     boardTurn();
     $(".score").css("opacity", "1");
