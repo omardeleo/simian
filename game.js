@@ -147,8 +147,10 @@ $(() => {
       scoreAnimation();
       submitScore(score)
     };
-    $(".game-over-screen audio")[0].currentTime = 0;
-    $(".game-over-screen audio")[0].play();
+    if (!isMuted) {
+      $(".game-over-screen audio")[0].currentTime = 0;
+      $(".game-over-screen audio")[0].play();
+    }
   }
 
   function checkCorrect(event) {
