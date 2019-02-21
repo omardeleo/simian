@@ -206,6 +206,9 @@ body {
 
 .game-over-text {
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -262,4 +265,14 @@ body {
   text-align: center;
   text-decoration: none;
   color: white;
+}
+
+.new-high-score {
+  font-size: 50px;
+  display: none;
+}
+
+
+.lime {
+  color: lime;
 }
