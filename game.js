@@ -210,6 +210,7 @@ $(() => {
   function returnToGame(){
     $(".game-over-screen").css("display", "none");
     hiScore.css("display", "none");
+    $(".game-over-screen audio")[0].pause();
     newGame();
   }
 
