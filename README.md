@@ -2,7 +2,7 @@
 ### THE ULTIMATE GAME OF MONKEY SEE, MONKEY DO
 ![](/assets/images/simian_screen_01.png)
 
-## **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
+# **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
 
 Simian is a pattern-matching memory game. The board plays a random sequence of lights, and the player must repeat the sequence by pressing the colored pads in the correct order. After each successful turn, the sequence increases by one light. The objective of the game is to set a new high score.
 
@@ -53,7 +53,22 @@ function flashScore() {
 ```
 
 ### Cloud database implementation
+Making live updates to the SIMIAN database is painless thanks to Google Firebase and Cloud Firestore. A call to write to the database creates a `Promise` object, which upon succeeding updates the HIGH SCORE display, or upon failure displays a console error.
+
+```
+function submitScore(score) {
+  db.collection("scores").doc("top-score").set({
+    score: score,
+  })
+  .then(function() {
+      getHighScore();
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
+}
+```
 
 ![](https://naturescrusaders.files.wordpress.com/2009/08/monkeymirror.jpg)
 
-## **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
+# **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
