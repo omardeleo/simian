@@ -11,6 +11,8 @@ $(() => {
   let score_html;
   let isMuted = false;
   let highScore;
+  let hiScore = $('.new-high-score, .new-high-score span');
+  var flashInt;
 
   getHighScore();
 
@@ -48,10 +50,10 @@ $(() => {
             highScore = doc.data().score;
             displayHighScore();
         } else {
-            console.log("No such document!");
+            console.error("Error getting document");
         }
     }).catch(function(error) {
-        console.log("Error getting document:", error);
+        console.error("Error getting document: ", error);
     });
   }
 
@@ -131,7 +133,6 @@ $(() => {
       score: score,
     })
     .then(function() {
-        console.log("Document successfully written!");
         getHighScore();
     })
     .catch(function(error) {
@@ -143,6 +144,7 @@ $(() => {
     $(".game-over-screen").css("display", "flex");
     const score = parseInt($(".score").html());
     if (isNewHighScore(score)) {
+      scoreAnimation();
       submitScore(score)
     };
   }
@@ -204,6 +206,7 @@ $(() => {
   function returnToGame(){
     resetGame();
     $(".game-over-screen").css("display", "none");
+    hiScore.css("display", "none");
   }
 
   $('.mute').click(muteToggle);
@@ -229,5 +232,19 @@ $(() => {
   $(".close").click(function() {
     $(".instructions-panel").css("display", "none");
   })
+
+  function scoreAnimation() {
+    hiScore.show();
+    flashScoreInt = setInterval(flashScore, 200);
+    setTimeout(clearScoreInt, 5000);
+  }
+
+  function flashScore() {
+    hiScore.toggleClass('lime');
+  }
+
+  function clearScoreInt() {
+    clearInterval(flashScoreInt);
+  }
 
 });
