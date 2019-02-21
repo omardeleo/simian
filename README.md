@@ -1,26 +1,27 @@
-![alt text](http://txt-dynamic.cdn.1001fonts.net/txt/dHRmLjE1OC4wMDAwMDAuVTBsTlNVRk8uMgAA/pricedown.black.png "Simian Logo")
+![](http://txt-dynamic.cdn.1001fonts.net/txt/dHRmLjE1OC4wMDAwMDAuVTBsTlNVRk8uMgAA/pricedown.black.png "Simian Logo")
 ### THE ULTIMATE GAME OF MONKEY SEE, MONKEY DO
-![](https://i.imgur.com/0UCFrwv.png)
+![](/assets/images/simian_screen_01.png)
 
-#### MVP
-Simian is a pattern-matching game in which a board with 4 different-colored light-up push-pads plays a random sequence, which the human (or monkey) must then replicate correctly.
+## **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
 
-#### **List of Features**
-* board with 4 different-colored light-up push-pads
-* random sequence generator
-* sequence will consist of a colored push-pad lighting up and playing a sound
-* sequence will increase in number of lights and will decrease in interval length
-* game will log high score
+Simian is a pattern-matching memory game. The board plays a random sequence of lights, and the player must repeat the sequence by pressing the colored pads in the correct order. After each successful turn, the sequence increases by one light. The objective of the game is to set a new high score.
+
+#### **Features**
+* New Game button
+* Board with 4 different-colored light-up push-pads.
+* How To Play guide.
+* Sound Off/On button.
+* Current Score display.
+* High Score display.
+* Game Over screen.
+* Links to view my awesome work.
 
 #### **Technologies, Libraries, APIs**
-* HTML
-* JavaScript
-* Maybe jQuery (or DOMSelecta!)
-* CSS
+* HTML for markup.
+* CSS for styling.
+* JavaScript + jQuery for DOM manipulation and interactivity.
+* Firebase for getting and updating High Score.
 
-#### **Implementation Timeline**
-* Board
-* User Interface
-* Scorekeeping
+![](https://naturescrusaders.files.wordpress.com/2009/08/monkeymirror.jpg)
 
-![](https://naturescrusaders.files.wordpress.com/2009/08/monkeymirror.jpg?w=300)
+## **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
