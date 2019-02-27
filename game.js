@@ -1,4 +1,4 @@
-$(() => {
+$ez(() => {
   const COLORS = ["red", "green","blue", "yellow"];
   let lightInterval;
   let count;
@@ -11,21 +11,22 @@ $(() => {
   let score_html;
   let isMuted = false;
   let highScore;
-  let hiScore = $('.new-high-score, .new-high-score span');
+  let hiScore = $ez('.new-high-score, .new-high-score span');
   var flashInt;
 
   getHighScore();
 
-  $(".new-game").click(newGame);
+  // $ez(".new-game").on("click",newGame);
+  $ez(".new-game").on("click", newGame);
 
   function newGame() {
     resetGame();
     boardTurn();
-    $(".score").css("opacity", "1");
+    $ez(".score").css("opacity", "1");
   }
 
   function displayHighScore() {
-    $(".high-score").html(convertScore(highScore));
+    $ez(".high-score").html(convertScore(highScore));
   }
 
   function resetGame() {
@@ -40,7 +41,7 @@ $(() => {
 
   function resetScore() {
     score = 0;
-    $(".score").html('0000000');
+    $ez(".score").html('0000000');
   }
 
   function getHighScore() {
@@ -79,33 +80,33 @@ $(() => {
   }
 
   function addUserControls() {
-    $(".pad").on("mousedown", lightUp);
-    $(".pad").on("mouseup", lightOff);
-    $( ".pad" ).on("click", checkCorrect);
+    $ez(".pad").on("mousedown", lightUp);
+    $ez(".pad").on("mouseup", lightOff);
+    $ez( ".pad" ).on("click", checkCorrect);
   }
 
   function removeUserControls() {
-    $(".pad").off("mousedown", lightUp);
-    $(".pad").off("mouseup", lightOff);
-    $( ".pad" ).off("click", checkCorrect);
+    $ez(".pad").off("mousedown", lightUp);
+    $ez(".pad").off("mouseup", lightOff);
+    $ez( ".pad" ).off("click", checkCorrect);
   }
 
   function lightUp() {
-    $(this).css("opacity", "1");
+    $ez(this).css("opacity", "1");
   }
 
   function lightOff() {
-    $(this).css("opacity", "0.4");
+    $ez(this).css("opacity", "0.4");
   }
 
   function lightSequence() {
     if (count < round) {
       selector = sequence[count];
-      $(selector).css("opacity", "1");
+      $ez(selector).css("opacity", "1");
       if (!isMuted) {
         playSound(selector);
       }
-      window.setTimeout(dimPad.bind($(selector)), 500);
+      window.setTimeout(dimPad.bind($ez(selector)), 500);
       count += 1;
     } else {
       count = 0;
@@ -119,9 +120,9 @@ $(() => {
   }
 
   function userTurn() {
-      lightCount = 0;
-      correctCount = 0;
-      addUserControls();
+    lightCount = 0;
+    correctCount = 0;
+    addUserControls();
   }
 
   function isNewHighScore(score) {
@@ -141,15 +142,15 @@ $(() => {
   }
 
   function endGame() {
-    $(".game-over-screen").css("display", "flex");
-    const score = parseInt($(".score").html());
+    $ez(".game-over-screen").css("display", "flex");
+    const score = parseInt($ez(".score").html());
     if (isNewHighScore(score)) {
       scoreAnimation();
       submitScore(score)
     };
     if (!isMuted) {
-      $(".game-over-screen audio")[0].currentTime = 0;
-      $(".game-over-screen audio")[0].play();
+      $ez(".game-over-screen audio").nodes[0].currentTime = 0;
+      $ez(".game-over-screen audio").nodes[0].play();
     }
   }
 
@@ -159,7 +160,7 @@ $(() => {
       if (!isMuted) {
         playSound(selector);
       }
-      if (event.target.className !== $(selector).attr("class")) {
+      if (event.target.className !== $ez(selector).attr("class")) {
         endGame();
       } else {
         correctFunction();
@@ -178,7 +179,7 @@ $(() => {
 
   function increaseScore() {
     score += 10;
-    $(".score").html(convertScore(score));
+    $ez(".score").html(convertScore(score));
   }
 
   function correctSequence() {
@@ -193,49 +194,49 @@ $(() => {
   }
 
   function hideNice() {
-    $(".nice").css("display", "none");
+    $ez(".nice").css("display", "none");
     boardTurn();
   }
 
   function showNice() {
-    $(".nice").css("display", "block");
+    $ez(".nice").css("display", "block");
   }
 
   function dimPad(){
-    $(this).css("opacity", "0.4");
+    this.css("opacity", "0.4");
   }
 
-  $(".play-again").click(returnToGame);
+  $ez(".play-again").on("click",returnToGame);
 
   function returnToGame(){
-    $(".game-over-screen").css("display", "none");
+    $ez(".game-over-screen").css("display", "none");
     hiScore.css("display", "none");
-    $(".game-over-screen audio")[0].pause();
+    $ez(".game-over-screen audio").nodes[0].pause();
     newGame();
   }
 
-  $('.mute').click(muteToggle);
+  $ez('.mute').on("click",muteToggle);
 
   function muteToggle() {
     if (!isMuted) {
-      $('.mute').html("SOU<span>N</span>D O<span>N</span>");
+      $ez('.mute').html("SOU<span>N</span>D O<span>N</span>");
     } else {
-      $('.mute').html("SOU<span>N</span>D O<span>F</span>F");
+      $ez('.mute').html("SOU<span>N</span>D O<span>F</span>F");
     }
     isMuted = !isMuted;
   }
 
   function playSound(selector) {
-    $(`${selector} audio`)[0].currentTime = 0;
-    $(`${selector} audio`)[0].play();
+    $ez(`${selector} audio`).nodes[0].currentTime = 0;
+    $ez(`${selector} audio`).nodes[0].play();
   }
 
-  $(".how-to-play").click(function() {
-    $(".instructions-panel").css("display", "flex");
+  $ez(".how-to-play").on("click",function() {
+    $ez(".instructions-panel").css("display", "flex");
   })
 
-  $(".close").click(function() {
-    $(".instructions-panel").css("display", "none");
+  $ez(".close").on("click",function() {
+    $ez(".instructions-panel").css("display", "none");
   })
 
   function scoreAnimation() {
