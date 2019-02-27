@@ -16,7 +16,6 @@ $ez(() => {
 
   getHighScore();
 
-  // $ez(".new-game").on("click",newGame);
   $ez(".new-game").on("click", newGame);
 
   function newGame() {
@@ -206,7 +205,7 @@ $ez(() => {
     this.css("opacity", "0.4");
   }
 
-  $ez(".play-again").on("click",returnToGame);
+  $ez(".play-again").on("click", returnToGame);
 
   function returnToGame(){
     $ez(".game-over-screen").css("display", "none");
@@ -215,7 +214,7 @@ $ez(() => {
     newGame();
   }
 
-  $ez('.mute').on("click",muteToggle);
+  $ez('.mute').on("click", muteToggle);
 
   function muteToggle() {
     if (!isMuted) {
@@ -231,11 +230,11 @@ $ez(() => {
     $ez(`${selector} audio`).nodes[0].play();
   }
 
-  $ez(".how-to-play").on("click",function() {
+  $ez(".how-to-play").on("click", function() {
     $ez(".instructions-panel").css("display", "flex");
   })
 
-  $ez(".close").on("click",function() {
+  $ez(".close").on("click", function() {
     $ez(".instructions-panel").css("display", "none");
   })
 
