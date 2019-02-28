@@ -239,7 +239,7 @@ $ez(() => {
   })
 
   function scoreAnimation() {
-    hiScore.show();
+    hiScore.css("display", "flex");
     flashScoreInt = setInterval(flashScore, 200);
     setTimeout(clearScoreInt, 5000);
   }
