@@ -13,6 +13,7 @@ $ez(() => {
   let highScore;
   let hiScore = $ez('.new-high-score, .new-high-score span');
   var flashInt;
+  let playInterval;
 
   getHighScore();
 
@@ -34,6 +35,7 @@ $ez(() => {
     resetScore();
     getHighScore();
     count = 0;
+    // lightCount = 0;
     round = 1;
     sequence = [];
   }
@@ -72,10 +74,43 @@ $ez(() => {
   }
 
   function boardTurn(){
-    let color = COLORS[randomInt(0,3)];
-    selector = "."+color+".pad";
-    sequence.push(selector);
-    lightInterval = setInterval(lightSequence, 800);
+    // let color = COLORS[randomInt(0,3)];
+    // selector = "."+color+".pad";
+    // sequence.push(selector);
+    // console.log('brdTrun')
+    addToSequence();
+    removeUserControls();
+    playSequence();
+
+    // lightInterval = setInterval(lightSequence, 800);
+  }
+
+  function addToSequence() {
+    sequence.push(COLORS[randomInt(0,3)]);
+  }
+
+  function playSequence() {
+    let lightCount = 0;
+    playInterval = setInterval(playPad, 800);
+  }
+
+  function playPad() {
+    console.log(3);
+    if (count < round) {
+      console.log('seq', sequence)
+      const color = sequence[count];
+      const selector = `.${color}.pad`;
+      $ez(selector).css("opacity", "1");
+      if (!isMuted) {
+        playSound(selector);
+      }
+      setTimeout(dimPad.bind($ez(selector)), 500);
+      count += 1;
+    } else {
+      count = 0;
+      stopLights();
+      userTurn();
+    }
   }
 
   function addUserControls() {
@@ -85,9 +120,10 @@ $ez(() => {
   }
 
   function removeUserControls() {
+    console.log(5)
     $ez(".pad").off("mousedown", lightUp);
     $ez(".pad").off("mouseup", lightOff);
-    $ez( ".pad" ).off("click", checkCorrect);
+    $ez(".pad").off("click", checkCorrect);
   }
 
   function lightUp() {
@@ -98,24 +134,8 @@ $ez(() => {
     $ez(this).css("opacity", "0.4");
   }
 
-  function lightSequence() {
-    if (count < round) {
-      selector = sequence[count];
-      $ez(selector).css("opacity", "1");
-      if (!isMuted) {
-        playSound(selector);
-      }
-      window.setTimeout(dimPad.bind($ez(selector)), 500);
-      count += 1;
-    } else {
-      count = 0;
-      stopLights();
-      userTurn();
-    }
-  }
-
   function stopLights() {
-    clearInterval(lightInterval);
+    clearInterval(playInterval);
   }
 
   function userTurn() {
@@ -155,7 +175,7 @@ $ez(() => {
 
   function checkCorrect(event) {
     if (lightCount < sequence.length) {
-      selector = sequence[lightCount];
+      selector = `.${sequence[lightCount]}.pad`;
       if (!isMuted) {
         playSound(selector);
       }
@@ -226,6 +246,7 @@ $ez(() => {
   }
 
   function playSound(selector) {
+    console.log('sel',selector)
     $ez(`${selector} audio`).nodes[0].currentTime = 0;
     $ez(`${selector} audio`).nodes[0].play();
   }
