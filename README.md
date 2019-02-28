@@ -20,7 +20,7 @@ Simian is a pattern-matching memory game. The board plays a random sequence of l
 #### **Technologies, Libraries, APIs**
 * HTML for markup
 * CSS for styling
-* JavaScript + jQuery for DOM manipulation and interactivity
+* JavaScript + EZPZ for DOM manipulation and interactivity
 * Firebase for getting and updating High Score
 
 ### Start a New Game
@@ -33,12 +33,12 @@ To begin playing, simply click the NEW GAME button.
 
 When a new High Score is set, the GAME OVER screen flashes a blinking message.
 
-### jQuery Animation
-Aside from DOM manipulation and interactivity, jQuery is excellent for quick-and-easy animations.
+### EZPZ Animation
+Aside from DOM manipulation and interactivity, EZPZ is excellent for quick-and-easy animations. Learn more about this lightweight JavaScript library [here](https://www.github.com/omardeleo/ezpz "EZPZ").
 
-![](https://media.giphy.com/media/B2NgoeEz7o1qAAXxbe/giphy.gif "jQuery Animation")
+![](https://media.giphy.com/media/B2NgoeEz7o1qAAXxbe/giphy.gif "EZPZ Animation")
 
-The blinking NEW HIGH SCORE message was animated using jQuery's `toggleClass()` method, in conjuction with `setInterval()` and `setTimeout()`, which are provided by the Web API.
+The blinking NEW HIGH SCORE message was animated using EZPZ's `toggleClass()` method, in conjuction with `setInterval()` and `setTimeout()`, which are provided by the Web API.
 ```  
 function scoreAnimation() {
   hiScore.show();
