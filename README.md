@@ -2,7 +2,7 @@
 ### THE ULTIMATE GAME OF MONKEY SEE, MONKEY DO
 ![](/assets/images/simian_screen_01.png)
 
-# **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
+# **[Play SIMIAN](https://www.omardeleo.me/simian/ "Play SIMIAN")**
 
 Simian is a pattern-matching memory game. The board plays a random sequence of lights, and the player must repeat the sequence by pressing the colored pads in the correct order. After each successful turn, the sequence increases by one light. The objective of the game is to set a new high score.
 
@@ -71,4 +71,4 @@ function submitScore(score) {
 
 ![](https://naturescrusaders.files.wordpress.com/2009/08/monkeymirror.jpg)
 
-# **[Play SIMIAN](https://omardeleo.github.io/simian/ "Play SIMIAN")**
+# **[Play SIMIAN](https://www.omardeleo.me/simian/ "Play SIMIAN")**
